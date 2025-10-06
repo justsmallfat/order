@@ -9,11 +9,12 @@
 import UIKit
 import Photos
 import FBSDKShareKit
+import GoogleMobileAds
 
 
 
 
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, orderSetDelegate, SharingDelegate {
+class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, orderSetDelegate, SharingDelegate, GADBannerViewDelegate {
     func orderSet(index: Int, name: String?, count: Int?) {
         if name != nil {
             self.datas[index]["name"] = name
@@ -26,8 +27,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     
     @IBOutlet weak var versionLabel: UILabel!
+    @IBOutlet weak var bannerView: GADBannerView!
     
     @IBOutlet var gamesCollectionView: UICollectionView!
+    
+//    var bannerView : GADBannerView!
     var datas = [[String:Any]]()
     
     func sharer(_ sharer: Sharing, didCompleteWithResults results: [String : Any]) {
@@ -88,6 +92,13 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             print("Build Number: \(build)")
             self.versionLabel.text = "版本：\(version)"
         }
+        
+        bannerView.adUnitID = "ca-app-pub-2248104426660919/3784368423"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+
+        bannerView.delegate = self
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

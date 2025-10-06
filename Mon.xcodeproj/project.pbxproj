@@ -195,8 +195,6 @@
 			dependencies = (
 			);
 			name = Mon;
-			packageProductDependencies = (
-			);
 			productName = Mon;
 			productReference = 34EEBC30243B23CC00A620E7 /* 媽點.app */;
 			productType = "com.apple.product-type.application";
@@ -272,8 +270,6 @@
 				Base,
 			);
 			mainGroup = 34EEBC27243B23CC00A620E7;
-			packageReferences = (
-			);
 			productRefGroup = 34EEBC31243B23CC00A620E7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -322,13 +318,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Mon/Pods-Mon-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Mon/Pods-Mon-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -365,13 +357,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Mon-MonUITests/Pods-Mon-MonUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Mon-MonUITests/Pods-Mon-MonUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

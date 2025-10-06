@@ -7,6 +7,7 @@ target 'Mon' do
         pod 'FBSDKCoreKit'
         pod 'FBSDKLoginKit'
         pod 'FBSDKShareKit'
+        pod 'Google-Mobile-Ads-SDK'
   # Pods for Mon
 
   target 'MonTests' do

@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zWH-aN-ppc">
-                                <rect key="frame" x="5" y="101" width="404" height="687"/>
+                                <rect key="frame" x="5" y="101" width="404" height="647"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" sectionInsetReference="safeArea" id="nNt-JL-mq7">
                                     <size key="itemSize" width="210" height="30"/>
@@ -29,7 +29,7 @@
                                 <cells/>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MPL-mm-tG8">
-                                <rect key="frame" x="2" y="790" width="410" height="36"/>
+                                <rect key="frame" x="2" y="750" width="410" height="36"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXY-jX-2uD">
                                         <rect key="frame" x="0.0" y="0.0" width="120" height="36"/>
@@ -47,7 +47,7 @@
                                             <constraint firstAttribute="height" constant="36" id="Dnx-Xd-hQd"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="截圖">
+                                        <buttonConfiguration key="configuration" style="plain" title="截圖並分享">
                                             <backgroundConfiguration key="background" cornerRadius="16">
                                                 <color key="backgroundColor" systemColor="systemPurpleColor"/>
                                             </backgroundConfiguration>
@@ -66,20 +66,31 @@
                                     <constraint firstAttribute="bottom" secondItem="xXY-jX-2uD" secondAttribute="bottom" id="oUH-lV-g4y"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ml-W9-4py" customClass="GADBannerView">
+                                <rect key="frame" x="0.0" y="788" width="414" height="40"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="LCQ-AY-bqH"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="MPL-mm-tG8" secondAttribute="bottom" constant="2" id="LVb-bP-rHu"/>
+                            <constraint firstItem="9Ml-W9-4py" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3Vy-9X-g2Y"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="9Ml-W9-4py" secondAttribute="bottom" id="LJT-gK-QwG"/>
                             <constraint firstItem="zWH-aN-ppc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="WLe-iG-LEv"/>
                             <constraint firstItem="MPL-mm-tG8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="2" id="a3S-Rm-jKy"/>
                             <constraint firstItem="MPL-mm-tG8" firstAttribute="top" secondItem="zWH-aN-ppc" secondAttribute="bottom" constant="2" id="bhh-d7-pxy"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zWH-aN-ppc" secondAttribute="trailing" constant="5" id="nN5-0M-kXG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9Ml-W9-4py" secondAttribute="trailing" id="nad-ah-MEl"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MPL-mm-tG8" secondAttribute="trailing" constant="2" id="r9m-lX-TdB"/>
                             <constraint firstItem="zWH-aN-ppc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="vAv-Ki-Gx3"/>
+                            <constraint firstItem="9Ml-W9-4py" firstAttribute="top" secondItem="MPL-mm-tG8" secondAttribute="bottom" constant="2" id="yko-4C-3ca"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bannerView" destination="9Ml-W9-4py" id="vdH-Xd-Vn1"/>
                         <outlet property="gamesCollectionView" destination="zWH-aN-ppc" id="sBI-Xw-hlJ"/>
                         <outlet property="versionLabel" destination="xXY-jX-2uD" id="qRr-04-q92"/>
                     </connections>
