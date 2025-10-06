@@ -25,6 +25,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     
+    @IBOutlet weak var versionLabel: UILabel!
     
     @IBOutlet var gamesCollectionView: UICollectionView!
     var datas = [[String:Any]]()
@@ -59,25 +60,34 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         if (defaultDatas == nil) {
             defaultDatas = [
                 ["index":1, "name":"鹹酥雞", "count":1],["index":2, "name":"魷魚","count":1],
-                ["index":3, "name":"地瓜","count":1],["index":4, "name":"香菇","count":1],
-                ["index":5, "name":"杏苞姑","count":2],["index":6, "name":"雞翅","count":2],
-                ["index":7, "name":"雞排","count":1],["index":8, "name":"雞屁股","count":4],
-                ["index":9, "name":"豆乾","count":1],["index":10, "name":"雞心","count":0],
-                ["index":11, "name":"雞腸","count":4],["index":12, "name":"薯條","count":0],
-                ["index":13, "name":"四季豆","count":1],["index":14, "name":"青椒","count":0],
-                ["index":15, "name":"玉米","count":1],["index":16, "name":"甜不辣","count":0],
-                ["index":17, "name":"雞皮","count":0],["index":18, "name":"雞蛋豆腐","count":1],
-                ["index":19, "name":"花椰菜","count":2],["index":20, "name":"雞腳","count":0]]
+                ["index":3, "name":"雞排","count":0],["index":4, "name":"地瓜","count":1],
+                ["index":5, "name":"百頁豆腐","count":2],["index":6, "name":"四季豆","count":1],
+                ["index":7, "name":"香菇","count":1],["index":8, "name":"雞皮","count":0],
+                ["index":9, "name":"花椰菜","count":2],["index":10, "name":"玉米","count":1],
+                ["index":11, "name":"青椒","count":0],["index":12, "name":"甜不辣","count":0],
+                ["index":13, "name":"糯米腸","count":1],["index":14, "name":"芋粿巧","count":1],
+                ["index":15, "name":"花枝丸","count":1],["index":16, "name":"雞屁股","count":4],
+                ["index":17, "name":"雞腳","count":0],["index":18, "name":"雞胗","count":0],
+                ["index":19, "name":"雞心","count":0],["index":20, "name":"魚板","count":0],
+                ["index":21, "name":"雞翅","count":2],["index":22, "name":"銀絲捲","count":0],
+                ["index":23, "name":"芋籤","count":0],["index":24, "name":"豆乾","count":1],
+                ["index":25, "name":"豬血糕","count":0],["index":26, "name":"熱狗","count":0],
+                ["index":27, "name":"雞蛋豆腐","count":1],["index":28, "name":"雞腸","count":4]]
         }
         // Do any additional setup after loading the view.
         datas = defaultDatas as! [[String : Any]]
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
         
         self.gamesCollectionView.register(UINib(nibName: "BoxCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "BoxCollectionViewCell")
         self.gamesCollectionView.delegate = self
         self.gamesCollectionView.dataSource = self
+        
+        
+        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
+           let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String {
+            print("App Version: \(version)")
+            print("Build Number: \(build)")
+            self.versionLabel.text = "版本：\(version)"
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -97,11 +107,22 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 5
+        return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 40
+        return 30
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        let itemsPerRow: CGFloat = 2  // 你要一行顯示幾個
+        let paddingSpace = 40 * (itemsPerRow - 1)
+        let availableWidth = collectionView.bounds.width - paddingSpace
+        let widthPerItem = availableWidth / itemsPerRow
+        return CGSize(width: widthPerItem, height: widthPerItem)
     }
     
     @IBAction func catchView(_ sender: Any) {

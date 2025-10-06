@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -322,9 +322,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Mon/Pods-Mon-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Mon/Pods-Mon-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -361,9 +365,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Mon-MonUITests/Pods-Mon-MonUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Mon-MonUITests/Pods-Mon-MonUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -602,6 +610,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = D8D54UZ6JW;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = D8D54UZ6JW;
 				INFOPLIST_FILE = Mon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -611,6 +620,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.smallfat5566.mon;
 				PRODUCT_NAME = "媽點";
 				PROVISIONING_PROFILE_SPECIFIER = "com smallfat5566 mon developer";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = developer;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -624,6 +634,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = D8D54UZ6JW;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = D8D54UZ6JW;
 				INFOPLIST_FILE = Mon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -633,6 +644,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.smallfat5566.mon;
 				PRODUCT_NAME = "媽點";
 				PROVISIONING_PROFILE_SPECIFIER = "com smallfat5566 mon store";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "monorder store";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
