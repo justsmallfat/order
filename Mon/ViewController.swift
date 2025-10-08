@@ -14,7 +14,7 @@ import GoogleMobileAds
 
 
 
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, orderSetDelegate, SharingDelegate, GADBannerViewDelegate {
+class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, orderSetDelegate, SharingDelegate, BannerViewDelegate {
     func orderSet(index: Int, name: String?, count: Int?) {
         if name != nil {
             self.datas[index]["name"] = name
@@ -27,7 +27,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     
     @IBOutlet weak var versionLabel: UILabel!
-    @IBOutlet weak var bannerView: GADBannerView!
+    @IBOutlet weak var bannerView: BannerView!
     
     @IBOutlet var gamesCollectionView: UICollectionView!
     
@@ -95,7 +95,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         bannerView.adUnitID = "ca-app-pub-2248104426660919/3784368423"
         bannerView.rootViewController = self
-        bannerView.load(GADRequest())
+        bannerView.load(Request())
 
         bannerView.delegate = self
         

@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMobileAds
+import AppTrackingTransparency
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,8 +18,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        GADMobileAds.sharedInstance().start(completionHandler: nil)
+        // iOS 14+ 需先等畫面初始化完成再要求追蹤授權
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.requestTrackingPermission()
+        }
+        
+//        MobileAds.shared.start(completionHandler: nil)
         return true
+    }
+    
+    private func requestTrackingPermission() {
+        if #available(iOS 14, *) {
+            ATTrackingManager.requestTrackingAuthorization { status in
+                DispatchQueue.main.async {
+                    switch status {
+                    case .authorized:
+                        print("✅ 使用者允許追蹤")
+                        MobileAds.shared.start(completionHandler: nil)
+                    case .denied, .restricted, .notDetermined:
+                        // 設定非個人化廣告參數
+                        let extras = Extras()
+                        extras.additionalParameters = ["npa": "1"]
+
+                        // 註冊給全域使用的 request
+                        Request().register(extras)
+
+                        MobileAds.shared.start(completionHandler: nil)
+                    @unknown default:
+                        break
+                    }
+                }
+            }
+        } else {
+            // iOS 14 以下版本
+            MobileAds.shared.start(completionHandler: nil)
+        }
     }
 
     // MARK: UISceneSession Lifecycle

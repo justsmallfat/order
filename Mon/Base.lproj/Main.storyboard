@@ -54,6 +54,9 @@
                                             <fontDescription key="titleFontDescription" style="UICTFontTextStyleSubhead"/>
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="catchView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3le-Mh-1cs"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
