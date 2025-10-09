@@ -145,7 +145,18 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         UIGraphicsBeginImageContextWithOptions(self.view.frame.size, true, 0)
         gamesCollectionView.drawHierarchy(in: self.view.bounds, afterScreenUpdates: true)
         let shareImage = UIGraphicsGetImageFromCurrentImageContext()
-        let avc = UIActivityViewController.init(activityItems: NSArray.init(array: [shareImage,nil]) as! [Any], applicationActivities: nil)
+        let avc = UIActivityViewController(activityItems: [shareImage as Any], applicationActivities: nil)
+
+        // 🔧 修正 iPad popover crash
+        if let popover = avc.popoverPresentationController {
+            popover.sourceView = self.view
+            popover.sourceRect = CGRect(x: self.view.bounds.midX,
+                                        y: self.view.bounds.midY,
+                                        width: 0,
+                                        height: 0)
+            popover.permittedArrowDirections = []
+        }
+
         self.present(avc, animated: true, completion: nil)
         
 //        [self presentViewController:avc animated:YES completion:nil];
